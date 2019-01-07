@@ -5,7 +5,7 @@ namespace simpleCSV
 
 read::read(const std::string& file_path) : _file_path(file_path) {}
 
-void read::_readCSVRow(const std::string &row, std::vector<std::string> &fields, CSVState &state, size_t &i)
+void read::_readCSVRow(const std::string& row, std::vector<std::string>& fields, CSVState& state, size_t& i)
 {
     char prev;
 
@@ -15,6 +15,10 @@ void read::_readCSVRow(const std::string &row, std::vector<std::string> &fields,
         {
             fields.push_back("");
             i++;
+        }
+        else if (c == '"' && prev == NULL && state == CSVState::UnquotedField)
+        {
+           state = CSVState::QuotedField;
         }
         else if (prev == '"' && c == ',' && state == CSVState::QuotedField)
         {

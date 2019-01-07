@@ -1,11 +1,13 @@
 #include <iostream> // cout, endl
 #include <fstream>  // fstream
 #include "simplecsvread.h"
+#include "simplecsvwrite.h"
 
 int main()
 {
 
     auto fileCSV = simpleCSV::read("../2.csv").to_list();
+    simpleCSV::write("../3.csv", fileCSV);
 
     for (int i{0}; i < fileCSV.size(); i++)
     {

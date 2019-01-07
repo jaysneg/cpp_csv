@@ -23,7 +23,7 @@ class read
 
   private:
     std::string  _file_path;
-    void _readCSVRow(const std::string &row, std::vector<std::string> &fields, CSVState &state, size_t &i);
+    void _readCSVRow(const std::string& row, std::vector<std::string>& fields, CSVState& state, size_t& i);
 };
 
 } // namespace simpleCSV
